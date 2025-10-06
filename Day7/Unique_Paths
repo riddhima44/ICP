@@ -1,0 +1,16 @@
+class Solution {
+    public int uniquePaths(int m, int n) {
+        int[] ar = new int[n];
+        Arrays.fill(ar,1);
+        for (int row=1;row<m;row++) {
+            int[] cr = new int[n];
+            Arrays.fill(cr,1);
+            for (int col=1;col<n;col++) {
+                cr[col]=cr[col-1]+ar[col];
+            }
+            ar=cr;
+        }
+
+        return ar[n-1];        
+    }
+}
